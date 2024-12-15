@@ -28,13 +28,16 @@ var cfgFile string
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "jms-cli",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
+	Short: "用于自动化管理 JumpServer 的命令行工具",
+	Long: `
+jms-cli 是一款功能强大的命令行工具，通过与 JumpServer 的 API 进行交互，简化了 JumpServer 的管理工作，所有操作都可以在终端中快速完成。
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+食用方法：jms-cli [OPTIONS] COMMAND
+
+常用命令：
+  add		添加用户和资产
+  rm		删除用户和资产
+  version	查看版本信息`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
