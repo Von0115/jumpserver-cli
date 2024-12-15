@@ -35,12 +35,17 @@ jms-cli 是一款功能强大的命令行工具，通过与 JumpServer 的 API �
 食用方法：jms-cli [OPTIONS] COMMAND
 
 常用命令：
+  init		初始化项目目录
   add		添加用户和资产
   rm		删除用户和资产
   version	查看版本信息`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
+	Run: func(cmd *cobra.Command, args []string) {
+		// 只打印 Long 说明信息
+		fmt.Println(cmd.Long)
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -59,7 +64,7 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.jms-cli.yaml)")
+	//rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.jms-cli.yaml)")
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
