@@ -19,10 +19,10 @@ var projectDir string // 全局变量，用于指定项目目录
 // InitProjectDir 用于创建项目目录和初始化配置文件
 func InitProjectDir(projectDir string) error {
 	
-	// 创建项目目录
-	err := os.MkdirAll(projectDir, os.ModePerm)
-	if err != nil {
-		return fmt.Errorf("创建目录失败: %v", err)
+	// 尝试创建项目目录
+	dirErr := os.Mkdir(projectDir, os.ModePerm)    //仅当目标目录不存在时创建它；如果目录已存在，会返回 os.ErrExist 错误
+	if dirErr != nil {
+		return fmt.Errorf("%v", dirErr)      //创建目录失败
 	}
 
 	// 配置文件路径
@@ -34,12 +34,13 @@ func InitProjectDir(projectDir string) error {
 	viper.Set("jumpserver_url", "http://your-jumpserver-url")
 
 	// 写入配置文件
-	if err := viper.WriteConfigAs(configFilePath); err != nil {
-		return fmt.Errorf("写入配置文件失败: %v", err)
+	configErr := viper.WriteConfigAs(configFilePath)
+	if configErr != nil {
+		return fmt.Errorf("%v", configErr)      //极小可能因为权限、磁盘空间不够导致写入配置文件失败
 	}
 
 	// 输出成功信息
-	fmt.Printf("项目目录和配置文件已成功创建：%s\n", configFilePath)
+	fmt.Printf("项目目录和配置文件已创建成功：%s\n", configFilePath)
 	return nil
 }
 
