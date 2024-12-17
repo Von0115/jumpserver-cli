@@ -1,4 +1,4 @@
-module github.com/spf13/jms-cli
+module github.com/Von0115/jumpserver-cli
 
 go 1.21.13
 
