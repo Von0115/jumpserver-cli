@@ -1,4 +1,4 @@
-module github.com/Von0115/jumpserver-cli
+module jms-cli
 
 go 1.21.13
 
