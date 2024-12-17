@@ -29,22 +29,13 @@ var cfgFile string
 var rootCmd = &cobra.Command{
 	Use:   "jms-cli",
 	Short: "用于自动化管理 JumpServer 的命令行工具",
-	Long: `
-jms-cli 是一款功能强大的命令行工具，通过与 JumpServer 的 API 进行交互，简化了 JumpServer 的管理工作，所有操作都可以在终端中快速完成。
-
-食用方法：jms-cli [OPTIONS] COMMAND
-
-常用命令：
-  init		初始化项目目录
-  add		添加用户和资产
-  rm		删除用户和资产
-  version	查看版本信息`,
+	Long: `jms-cli 是一款功能强大的命令行工具，通过与 JumpServer 的 API 进行交互，简化了 JumpServer 的管理工作，所有操作都可以在终端中快速完成。`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
 	Run: func(cmd *cobra.Command, args []string) {
-		// 只打印 Long 说明信息
-		fmt.Println(cmd.Long)
+		// 打印帮助信息
+		fmt.Println("Use 'jms-cli --help' 查看食用方法")
 	},
 }
 
