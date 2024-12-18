@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/spf13/jms-cli/cmd"
+import "github.com/Von0115/jumpserver-cli/cmd"
 
 func main() {
 	cmd.Execute()
